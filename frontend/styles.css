@@ -1,0 +1,110 @@
+.wrapper 
+{
+   margin-left: 10%;
+   margin-right: 10%;
+}
+
+.align
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ajouter
+{
+    margin-left: 10%;
+    margin-right: 10%;
+    color: black;
+    background-color: green;
+}
+
+.supprimer
+{
+    background-color: red;
+    color: black;
+}
+
+.modifier
+{
+    background-color: orange;
+    color: black;
+}
+
+.tableau 
+{
+    border: 5px solid black;
+    margin: auto;
+    width: 80%;
+}
+
+table
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+table th, table td
+{
+    width: 10%;
+    text-align: center;
+}
+a 
+{
+    text-decoration: none;
+}
+
+.container 
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.column 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.valider
+{
+    display: flex;
+    background-color: greenyellow;
+    margin: auto;
+}
+
+tr 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+}
+
+textarea
+{
+    width: 500px;
+    height: 400px;
+    resize: none;
+}
+
+.checkbox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+label
+{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+button
+{
+    width: 150px;
+    height: 40px;
+    font-weight: bold;
+    color: brown;
+}
