@@ -8,7 +8,7 @@ $contenu = htmlspecialchars(implode([$_POST['contenu']]));
 $categorie = htmlspecialchars(implode([$_POST['categorie']]));
 $statut = htmlspecialchars(implode([$_POST['statut']]));
 $dateCreation = date("Y-m-d");
-$newTag = $_POST['newTag'];
+$tag = $_POST['newTag'];
 $oldTag = $tagArray = explode("," , $_POST['oldTag']);
 $id = $_POST['id'];
 // var_dump($newTag);
@@ -49,12 +49,17 @@ if (isset($titre, $contenu, $categorie, $statut))
     // Sinon on ajoute celui qui n'existe pas
     // On supprime ceux qui n'existent plus
 
-    // foreach ($newTag as $tag_id) { // On boucle pour ajouter plusieurs lignes dans la table intérmediaire si plusieurs tags sont recu
-    //     $req = $bdd->prepare('UPDATE article_has_tag SET article_id_article = :id, tag_id_tag = :tag_id'); 
-    //     $req->bindParam(':id', $id);
-    //     $req->bindParam(':tag_id', $tag_id);
-    //     $req->execute();
-    //     }
+    $req = $bdd->prepare('DELETE FROM `article_has_tag` WHERE `article_id_article` = :id');
+    $req->bindParam(':id', $id);
+    $req->execute();
+
+    $req = $bdd->prepare('INSERT INTO article_has_tag (article_id_article, tag_id_tag) VALUES (:id, :tag_id)'); 
+    $req->bindParam(':id', $id);
+
+    foreach ($tag as $tag_id) { // On boucle pour ajouter plusieurs lignes dans la table intérmediaire si plusieurs tags sont recu
+        $req->bindParam(':tag_id', $tag_id);
+        $req->execute();
+        }
 }
 
 
